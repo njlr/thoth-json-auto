@@ -1,0 +1,13 @@
+bin
+obj
+
+.ionide
+
+Scratch.fsx
+
+*.fs.js
+fable_modules
+
+node_modules
+
+.parcel-cache

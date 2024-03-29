@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Prelude.fs" />
+    <Compile Include="Casing.fs" />
+    <Compile Include="Primitives.fs" />
+    <Compile Include="Tuples.fs" />
+    <Compile Include="Option.fs" />
+    <Compile Include="List.fs" />
+    <Compile Include="Array.fs" />
+    <Compile Include="Seq.fs" />
+    <Compile Include="Records.fs" />
+    <Compile Include="Unions.fs" />
+    <Compile Include="Overrides.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Expecto" Version="10.2.1" />
+    <PackageReference Include="Fable.Mocha" Version="2.17.0" />
+    <PackageReference Include="Thoth.Json.Core" Version="0.2.1" />
+    <PackageReference Include="Thoth.Json.JavaScript" Version="0.1.0" />
+    <PackageReference Include="Thoth.Json.Newtonsoft" Version="0.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\thoth.json.auto\thoth.json.auto.fsproj" />
+  </ItemGroup>
+
+</Project>
