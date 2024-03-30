@@ -153,14 +153,16 @@ let encode =
       test "Encode.auto works for DateTimeOffset" {
         let encoder = Encode.auto ()
 
+        let dto = DateTimeOffset.Parse("2022-03-29T14:12:47.6258038+01:00", CultureInfo.InvariantCulture).ToUniversalTime()
+
         let actual =
-          encoder (DateTimeOffset.Parse("2022-03-29T14:12:47.6258038+01:00", CultureInfo.InvariantCulture))
+          encoder dto
           |> Encode.toString 0
 
 #if FABLE_COMPILER
-        let expected = "\"2022-03-29T14:12:47.625+01:00\""
+        let expected = "\"2022-03-29T13:12:47.625Z\""
 #else
-        let expected = "\"2022-03-29T14:12:47.6258038+01:00\""
+        let expected = "\"2022-03-29T13:12:47.6258038+00:00\""
 #endif
 
         Expect.equal actual expected ""
