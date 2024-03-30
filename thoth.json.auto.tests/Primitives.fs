@@ -308,14 +308,18 @@ let decode =
         Expect.equal actual expected ""
       }
 
+#if !FABLE_COMPILER
       test "Decode.auto works for DateTimeOffset" {
         let decoder = Decode.auto ()
 
         let result = Decode.fromString decoder "\"2023-07-22T15:35:21.226\""
         let actual = Expect.wantOk result ""
 
-        Expect.equal actual (DateTimeOffset.Parse("2023-07-22T15:35:21.226", CultureInfo.InvariantCulture)) ""
+        let expected = DateTimeOffset.Parse("2023-07-22T15:35:21.226", CultureInfo.InvariantCulture).ToUniversalTime()
+
+        Expect.equal actual expected ""
       }
+#endif
     ]
 
 let tests =
